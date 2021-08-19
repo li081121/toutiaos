@@ -1,0 +1,75 @@
+<template>
+  <div class="login">
+    <div class="login-head">永远滴神</div>
+     <el-form :model="user" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm login-form">
+      <el-form-item label="手机号" prop="name">
+        <el-input v-model="user.name" placeholder="请输入手机号"></el-input>
+      </el-form-item>
+      <el-form-item label="验证码" prop="region">
+        <el-input v-model="user.region" placeholder="请输入验证码"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-checkbox v-model="checked">我已经同意协议</el-checkbox>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" class="login-btn" @click="SubmitLogin" :loading="loginLoading">登 录</el-button>
+      </el-form-item>
+     </el-form>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'login',
+  data () {
+    return {
+      loginLoading: false,
+      user: {
+        name: '',
+        region: ''
+      },
+      rules: {
+        name: [
+          { required: true, message: '请输入手机号', trigger: 'blur' }
+        ],
+        region: [
+          { required: true, message: '请输入验证码', trigger: 'blur' }
+        ]
+      },
+      checked: false
+    }
+  },
+  methods: {
+    SubmitLogin () {
+
+    }
+  }
+}
+</script>
+
+<style lang="less" scoped>
+.login {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url('../assets/loginbackground.jpg') no-repeat;
+  background-size: cover;
+  .login-head {
+    margin-bottom: 30px;
+  }
+  .login-form {
+    background-color: #fff;
+    padding: 50px 50px 50px 0px;
+    min-width: 300px;
+    .login-btn {
+      width: 100%;
+    }
+  }
+}
+</style>

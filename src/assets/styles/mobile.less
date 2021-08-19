@@ -1,0 +1,327 @@
+.full-height-tabs{
+  height: 100%;
+  .van-tab{
+    flex-shrink: 0;
+    flex-grow: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .van-tabs__line{
+    bottom: 28px;
+  }
+  .van-tabs__content{
+    height: calc(100% - 44px);
+    .van-tab__pane-wrapper{
+      height: 100%;
+      .van-tab__pane{
+        height: 100%;
+        overflow-y: auto;
+      }
+    }
+  }
+}
+.footer{
+  width: 100%;
+  padding: 17px 15px;
+  box-sizing: border-box;
+  button{
+    width: 100%;
+    box-shadow: 0px 5px 11px 0px #7FC2FF;
+  }
+}
+.popup-with-title{
+  &::before{
+    content: attr(data-title);
+    width: 100%;
+    display: block;
+    color: #222;
+    font-size: 16px;
+    line-height: 23px;
+    text-align: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #ECEEF4;
+  }
+}
+.picker-bottom-tool{
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  .van-picker-column__item--selected{
+    font-size: 16px;
+    color: #444E5D;
+  }
+  .van-picker__toolbar{
+    display: flex;
+    button{
+      width: 50%;
+      font-size: 15px;
+      &.van-picker__cancel{
+        background-color: #F5F6F9;
+        color: #667080;
+      }
+      &.van-picker__confirm{
+        background-color: #2F93EE;
+        color: #fff;
+      }
+    }
+  }
+}
+// 搜索输入框样式
+.search-input-diy{
+  flex-grow: 1;
+  font-size: 13px;
+  padding-left: 0;
+  padding-right: 0;
+  color: #333;
+  .left-search-icon{
+    width: 15px;
+  }
+  .van-search__content{
+    box-sizing: border-box;
+    height: 36px;
+    background: #F5F7F9;
+  }
+  .van-field__left-icon{
+    margin-left: 3px;
+    margin-right: 8px;
+  }
+  .van-field{
+    padding-top: 9px;
+    padding-bottom: 9px;
+    font-size: 13px;
+    line-height: 19px;
+  }
+  .van-field__control::-webkit-input-placeholder{
+    color: #B2BBCE;
+  }
+}
+// 卡片基础样式
+.base-card{
+  width: 250px;
+  flex-shrink: 0;
+  flex-grow: 1;
+  background-color: #fff;
+  border-radius: 9px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 11px 1px rgba(70,89,106,0.05);
+  .card-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 6px;
+  }
+  .card-content{
+    padding: 7px 6px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    .content-item{
+      font-size: 13px;
+      line-height: 19px;
+      margin: 3px 0 ;
+      flex-shrink: 0;
+      flex-grow: 1;
+      min-width: 40%;
+      max-width: 100%;
+      text-align: left;
+      display: inline-flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      .label{
+        color: #667080;
+        flex-shrink: 0;
+        flex-grow: 0;
+      }
+      .value{
+        color: #374252;
+        flex-shrink: 1;
+        flex-grow: 1;
+        word-break: break-all;
+      }
+    }
+  }
+}
+.confirm-dialog{
+  border-radius: 7px;
+  .van-dialog__message{
+    font-size: 17px;
+    line-height: 24px;
+    color: #333;
+  }
+  .van-dialog__cancel,.van-dialog__confirm{
+    color: #0097FF;
+  }
+}
+// 带渐变背景的按钮基础样式
+.gradient-btn{
+  height: 42px;
+  background: linear-gradient(90deg, #5CC5F8 0%, #2F93EE 100%);
+  box-shadow: 0px 5px 12px 0px rgba(127,194,255,1);
+  border-radius: 21px;
+  font-size: 16px;
+  color: #FFFFFF;
+  line-height: 23px;
+  border: 0;
+  box-sizing: border-box;
+}
+// 朴素按钮样式
+.van-button--default{
+  border-color: #2F93EE;
+  color: #2F93EE;
+  font-size: 13px;
+  border-radius: 15px;
+}
+// primary按钮样式
+.van-button--primary{
+  background: linear-gradient(90deg, #5CC5F8 0%, #2F93EE 100%);
+  box-shadow: 0px 5px 12px 0px rgba(127,194,255,1);
+  border-radius: 21px;
+  border-color: transparent;
+}
+// small按钮样式
+.van-button--small{
+  font-size: 13px;
+  line-height: 19px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: auto;
+}
+// 箱号折叠面板公共样式
+.carton-collapse{
+  &:after{
+    border-width: 0px;
+  }
+  .collapse-title{
+    margin-left: 8px;
+    position: relative;
+  }
+  .selectable-collapse-item{
+    .van-checkbox{
+      display: inline-block;
+      position: absolute;
+      left: -20px;
+      top: 4px;
+    }
+    .van-collapse-item__title{
+      padding-bottom: 5px;
+      padding-left: 13px;
+      padding-right: 10px;
+      &:after{
+        border-width: 0px;
+      }
+    }
+  }
+  .van-collapse-item__title{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .van-collapse-item__content{
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 5px;
+  }
+  .item-list{
+    padding: 8px 16px;
+    background-color: #F8F9FB;
+  }
+}
+
+// overlayer样式
+.van-overlay{
+  background-color:rgba(0, 0, 0, 0.4)
+}
+// 打印中toast设置
+.printing-toast{
+  background-color: #fff;
+  border-radius: 7px;
+  width: 190px;
+  padding-top: 24px;
+  padding-bottom: 34px;
+  .van-toast__icon{
+    width: 75px;
+  }
+  .van-icon__image{
+    width: 100%;
+    height: 100%;
+  }
+  .van-toast__text{
+    font-size: 16px;
+    color: #333;
+    line-height: 23px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+}
+// tag样式的单选和复选
+.tag-radio-group{
+  .van-radio__icon{
+    padding: 5px 13px;
+    background-color: #F5F6F9;
+    border-radius: 13px;
+    font-size: 13px;
+    color: #374252;
+    line-height: 19px;
+    height: 19px;
+    margin-bottom: 10px;
+    &.van-radio__icon--checked{
+      background-color: #2F93EE;
+      color: #fff;
+    }
+  }
+}
+// 确认弹窗样式
+.confirm-dialog{
+  border-radius: 7px;
+}
+
+// 动态省略号效果设置
+.ellipsis-loading {
+  display: inline-block;
+  width: 50px;
+  height: 22px;
+  vertical-align: bottom;
+  overflow: hidden;
+  animation: loading 3s infinite step-start;
+}
+@-webkit-keyframes loading {
+  0% { width: 0; margin-right: 1.5em; }
+  33% { width: .5em; margin-right: 1em; }
+  66% { width: 1em; margin-right: .5em; }
+  100% { width: 1.5em; margin-right: 0;}
+}
+@keyframes loading {
+  0% { width: 0; margin-right: 1.5em; }
+  33% { width: .5em; margin-right: 1em; }
+  66% { width: 1em; margin-right: .5em; }
+  100% { width: 1.5em; margin-right: 0;}
+}
+
+// 带关闭图标的移动端弹窗样式
+.has-close-icon-dialog{
+  border-radius: 7px;
+  width: 316px;
+  .van-dialog__header{
+    font-size: 17px;
+    line-height: 24px;
+    color: #222;
+    padding-top: 20px;
+    .van-icon-cross{
+      position: absolute;
+      top: 20px;
+      right: 17px;
+    }
+  }
+  .van-dialog__content{
+    padding-top: 20px;
+  }
+  .dialog-footer{
+    padding: 20px 0;
+    text-align: center;
+    .van-button{
+      width: 133px;
+    }
+  }
+}
