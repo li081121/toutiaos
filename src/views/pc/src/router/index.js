@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
@@ -7,12 +8,33 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: () => import(/* webpackChunkName: 'invoiceManagement' */ '../views/Login.vue')
+    component: () => import(/* webpackChunkName: 'invoiceManagement' */ '../views/auth/Login.vue')
   },
   {
-    path: '/ww',
-    name: 'ww',
-    component: () => import(/* webpackChunkName: 'invoiceManagement' */ '../views/ww.vue')
+    path: '/mains',
+    name: 'toubaomain',
+    component: () => import(/* webpackChunkName: 'invoiceManagement' */ '../views/index.vue')
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import(/* webpackChunkName: 'invoiceManagement' */ '../views/auth/Register.vue'),
+    meta: {
+      title: '注册'
+    }
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: () => import(/* webpackChunkName: 'invoiceManagement' */ '../views/error/404'),
+    meta: {
+      title: '404-Notfound'
+    }
+  },
+  {
+    path: '*',
+    redirect: '/404',
+    hidden: true
   }
 ]
 

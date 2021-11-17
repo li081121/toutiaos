@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import { 
   Icon,
   Breadcrumb,
@@ -49,8 +50,8 @@ import {
   Tooltip,
   Popconfirm,
   Drawer,
+  Switch
 } from 'element-ui'
-
 
 export default (app) => {
   app.prototype.$ELEMENT = { size: 'small', zIndex: 2000 }
@@ -61,6 +62,7 @@ export default (app) => {
   app.prototype.$prompt = MessageBox.prompt
   app.prototype.$notify = Notification
   app.prototype.$message = Message
+  app.use(Switch)
   app.use(Icon)
   app.use(Breadcrumb)
   app.use(Container)

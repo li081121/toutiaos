@@ -15,7 +15,7 @@
         <el-checkbox v-model="checked">我已经同意协议</el-checkbox>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" class="login-btn" @click="Telverify" :loading="loginLoading">登 录</el-button>
+        <el-button type="primary" class="login-btn" @click="Telverify" :loading="loginLoading">短信验证</el-button>
       </el-form-item>
       <el-form-item>
         <img :src="src" :key="key" @click="GetCode">
@@ -57,7 +57,8 @@ export default {
   },
   methods: {
     Telverify () {
-      
+      this.$store.dispatch('TelPut', { mobile: this.user.mobile }).then(res => {
+      })
     },
     GetCode () {
       this.$store.dispatch('LoginInfo').then(res => {
