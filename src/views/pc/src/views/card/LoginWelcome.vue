@@ -3,7 +3,7 @@
     <div slot="header">
       <span>💐 发帖</span>
     </div>
-    <div v-if="token != null && token !== ''" class="has-text-centered">
+    <div v-if="token !== null && token !== ''" class="has-text-centered">
       <b-button type="is-danger" tag="router-link" :to="{path:'/post/create'}" outlined>✍ 发表想法</b-button>
     </div>
 
@@ -22,6 +22,17 @@ export default {
     ...mapGetters([
       'token'
     ])
+  },
+  data () {
+    return {
+      token: ''
+    }
+  },
+  created () {
+    this.token = localStorage.getItem('tokens')
+  },
+  updated () {
+    this.token = localStorage.getItem('tokens')
   }
 }
 </script>

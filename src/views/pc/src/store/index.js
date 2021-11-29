@@ -7,6 +7,7 @@ const store = new Vuex.Store({
   state: {
   },
   mutations: {
+    
   },
   actions: {
     LoginInfo ({}, params) {
@@ -92,6 +93,61 @@ const store = new Vuex.Store({
           method: 'post',
           url: '/regiter/login',
           data
+        }).then(rs => {
+          resolve(rs)
+        })
+      })
+    },
+    GetList ({},params) {
+      return new Promise((resolve, reject) => {
+        http({
+          method: 'get',
+          url: '/post/list',
+          params
+        }).then(rs => {
+          resolve(rs)
+        })
+      })
+    },
+    GoDetail ({},params) {
+      return new Promise((resolve, reject) => {
+        http({
+          method: 'get',
+          url: '/post/ids',
+          params
+        }).then(rs => {
+          resolve(rs)
+        })
+      })
+    },
+    Follow ({},params) {
+      return new Promise((resolve, reject) => {
+        http({
+          method: 'get',
+          url: '/relationship/subscribe',
+          params
+        }).then(rs => {
+          resolve(rs)
+        })
+      })
+    },
+    UnFollow ({},params) {
+      return new Promise((resolve, reject) => {
+        http({
+          method: 'get',
+          url: '/relationship/unsubscribe',
+          params
+        }).then(rs => {
+          resolve(rs)
+        })
+      })
+    },
+    IsFollow ({},params) {
+      return new Promise((resolve, reject) => {
+        http({
+          method: 'get',
+          url: '/relationship/validate',
+          params
         }).then(rs => {
           resolve(rs)
         })

@@ -82,7 +82,7 @@ export default {
           this.loading = true
           this.$store.dispatch('Logins', this.ruleForm)
             .then((rs) => {
-              sessionStorage.setItem('tokens', rs.data.token)
+              localStorage.setItem('tokens', rs.data.token)
               this.$message({
                 message: '恭喜你，登录成功',
                 type: 'success',

@@ -3,7 +3,7 @@
   <div class='box'>🔔 {{billboard.content}}</div>
   <div class="columns">
     <div class="column is-three-quarters">
-      <PostIndex></PostIndex>
+      <PIndex></PIndex>
     </div>
     <div class="column">
       <CardBar></CardBar>
@@ -13,12 +13,12 @@
 </template>
 <script>
 import CardBar from './card/cardbar.vue'
-import PostIndex from './post/postindex.vue'
+import PIndex from './post/PIndex.vue'
 export default {
   name: 'indexmain',
   components: {
     CardBar,
-    PostIndex
+    PIndex
   },
   data () {
     return {

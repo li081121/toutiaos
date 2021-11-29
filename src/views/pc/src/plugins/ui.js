@@ -50,7 +50,9 @@ import {
   Tooltip,
   Popconfirm,
   Drawer,
-  Switch
+  Switch,
+  Backtop,
+  Divider
 } from 'element-ui'
 
 export default (app) => {
@@ -62,6 +64,8 @@ export default (app) => {
   app.prototype.$prompt = MessageBox.prompt
   app.prototype.$notify = Notification
   app.prototype.$message = Message
+  app.use(Divider)
+  app.use(Backtop)
   app.use(Switch)
   app.use(Icon)
   app.use(Breadcrumb)
