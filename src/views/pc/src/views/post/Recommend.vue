@@ -20,8 +20,6 @@
 </template>
 
 <script>
-import { getRecommendTopics } from '@/api/post'
-
 export default {
   name: 'Recommend',
   props: {
@@ -30,18 +28,18 @@ export default {
       default: null
     }
   },
-  data() {
+  data () {
     return {
       recommend: []
     }
   },
-  created() {
+  created () {
     this.fetchRecommendTopics()
   },
   methods: {
-    fetchRecommendTopics() {
-      getRecommendTopics(this.topicId).then(value => {
-        const { data } = value
+    fetchRecommendTopics () {
+      this.$store.dispatch('getRecommend', { id: this.topicId }).then(rs => {
+        const { data } = rs
         this.recommend = data
       })
     }

@@ -29,11 +29,9 @@
 </template>
 
 <script>
-import { pushComment } from '@/api/comment'
-
 export default {
   name: 'LvCommentsForm',
-  data() {
+  data () {
     return {
       commentText: '',
       isLoading: false
@@ -46,14 +44,18 @@ export default {
     }
   },
   methods: {
-    async onSubmit() {
+    async onSubmit () {
       this.isLoading = true
       try {
-        let postData = {}
+        const postData = {}
         console.log(this.commentText)
-        postData['content'] = this.commentText
-        postData['topic_id'] = this.slug
-        await pushComment(postData)
+        postData.content = this.commentText
+        postData.topic_id = this.slug
+        postData.username = localStorage.getItem('username')
+        this.$store.dispatch('CreateCommentList', postData).then(rs => {
+          console.log(rs)
+        })
+        // await pushComment(postData)
         this.$emit('loadComments', this.slug)
         this.$message.success('留言成功')
       } catch (e) {

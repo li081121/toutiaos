@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import { fetchCommentsByTopicId } from '@/api/comment'
 import LvCommentsForm from './CommentsForm'
 import LvCommentsItem from './CommentsItem'
 
@@ -24,9 +22,10 @@ export default {
     LvCommentsForm,
     LvCommentsItem
   },
-  data() {
+  data () {
     return {
-      comments: []
+      comments: [],
+      tokens: ''
     }
   },
   props: {
@@ -35,20 +34,21 @@ export default {
       default: null
     }
   },
-  computed: {
-    ...mapGetters([
-      'token'
-    ])
+  created () {
+    console.log(this.$route.params.id)
+    this.token = localStorage.getItem('tokens')
   },
-  async mounted() {
+  updated () {
+    this.token = localStorage.getItem('tokens')
+  },
+  async mounted () {
     await this.fetchComments(this.slug)
   },
   methods: {
     // 初始化
-    async fetchComments(topic_id) {
-      console.log(topic_id)
-      fetchCommentsByTopicId(topic_id).then(response => {
-        const { data } = response
+    async fetchComments (topicId) {
+      this.$store.dispatch('getCommentList', { tocpid: topicId }).then(rs => {
+        const { data } = rs
         this.comments = data
       })
     }

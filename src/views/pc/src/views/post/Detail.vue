@@ -47,7 +47,7 @@
           >
             <router-link
               class="level-item"
-              :to="{name:'topic-edit',params: {id:topic.id}}"
+              :to="{name:'topicedit',params: {id:topic.id}}"
             >
               <span class="tag">编辑</span>
             </router-link>
@@ -60,8 +60,7 @@
           </div>
         </nav>
       </el-card>
-
-      <!-- <lv-comments :slug="topic.id" />  -->
+      <lv-comments :slug="topic.id" />
     </div>
 
     <div class="column">
@@ -71,24 +70,24 @@
         :user="topicUser"
       />
       <!--推荐-->
-      <!-- <recommend
+      <recommend
         v-if="flag"
         :topic-id="topic.id"
-      /> -->
+      />
     </div>
   </div>
 </template>
 
 <script>
 import Author from './Author.vue'
-// import Recommend from '@/views/post/Recommend'
-// import LvComments from '@/components/Comment/Comments'
+import Recommend from './Recommend'
+import LvComments from '../../components/Comment/Comments'
 import Vditor from 'vditor'
 import 'vditor/dist/index.css'
 
 export default {
   name: 'TopicDetail',
-  components: { Author },
+  components: { Author, Recommend, LvComments },
   computed: {
   },
   data () {

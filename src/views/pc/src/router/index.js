@@ -25,6 +25,11 @@ const routes = [
     component: () => import(/* webpackChunkName: 'invoiceManagement' */ '../views/post/Create.vue')
   },
   {
+    path: '/post/update',
+    name: 'topicedit',
+    component: () => import(/* webpackChunkName: 'invoiceManagement' */ '../views/post/Edit.vue')
+  },
+  {
     path: '/post/detail',
     name: 'postdetail',
     component: () => import(/* webpackChunkName: 'invoiceManagement' */ '../views/post/Detail.vue')
